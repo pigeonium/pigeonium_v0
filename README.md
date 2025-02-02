@@ -11,7 +11,7 @@ import pigeonium
 import hashlib
 
 # サーバーの選択
-pigeonium.Config.ServerUrl = "http://localhost:14510/"
+pigeonium.Config.ServerUrl = "https://pigeonium.h4ribote.net/server/"
 pigeonium.Config.AdminPublicKey = pigeonium.GET.networkInfo()['AdminPublicKey']
 
 # ウォレット生成・インポート
