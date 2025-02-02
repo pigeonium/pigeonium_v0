@@ -10,7 +10,7 @@ pythonでブロックチェーンっぽい通貨ネットワークを動かす�
 import pigeonium
 import hashlib
 
-# サーバーの選択
+# サーバーの選択・管理者の公開鍵の取得
 pigeonium.Config.ServerUrl = "https://pigeonium.h4ribote.net/server/"
 pigeonium.Config.AdminPublicKey = pigeonium.GET.networkInfo()['AdminPublicKey']
 
