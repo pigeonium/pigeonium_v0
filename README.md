@@ -6,18 +6,16 @@ pythonでブロックチェーンっぽい通貨ネットワークを動かす�
 ## Usage
 ```python
 import pigeonium
-import hashlib
 
-# サーバーの選択・管理者の公開鍵の取得
-pigeonium.Config.ServerUrl = "https://pigeonium.h4ribote.net/server/"
-pigeonium.Config.AdminPublicKey = pigeonium.GET.networkInfo()['AdminPublicKey']
+# サーバーの選択・サーバー情報の取得
+pigeonium.Config.getFromServer("https://pigeonium.h4ribote.net/server/")
+
+# 取引の取得・検証
+print(pigeonium.GET.transactions()[0].verify())
 
 # ウォレット生成・インポート
 newWallet = pigeonium.Wallet.generate()
 adminWallet = pigeonium.Wallet.fromPrivate(pigeonium.Utils.hex2bytes("114514",32))
-
-# 取引の取得・検証
-print(pigeonium.GET.transactions()[0].verify())
 
 # 取引の作成・送信
 newTx = pigeonium.Transaction.create(newWallet,adminWallet.address,bytes(16),100,pigeonium.GET.previousTxId())
