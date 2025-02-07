@@ -111,7 +111,7 @@ class GET:
         currencyList:list[Currency] = []
         for responseCu in responseJson:
             cu = Currency()
-            cu.currencyId = responseCu['currencyId']
+            cu.currencyId = bytes.fromhex(responseCu['currencyId'])
             cu.name,cu.symbol = responseCu['name'],responseCu['symbol']
             cu.issuer = bytes.fromhex(responseCu['issuer'])
             cu.inputData,cu.issuerSignature = bytes.fromhex(responseCu['inputData']),bytes.fromhex(responseCu['issuerSignature'])
