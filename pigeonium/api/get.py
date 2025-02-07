@@ -114,6 +114,7 @@ class GET:
             cu.currencyId = bytes.fromhex(responseCu['currencyId'])
             cu.name,cu.symbol = responseCu['name'],responseCu['symbol']
             cu.issuer = bytes.fromhex(responseCu['issuer'])
+            cu.supply = int(responseCu['supply'])
             cu.inputData,cu.issuerSignature = bytes.fromhex(responseCu['inputData']),bytes.fromhex(responseCu['issuerSignature'])
             cu.publicKey = bytes.fromhex(responseCu['publicKey'])
             currencyList.append(cu)
